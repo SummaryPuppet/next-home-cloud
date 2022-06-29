@@ -2,8 +2,7 @@ import SubmitForm from "./Forms/Submit";
 import NavigateInput from "./NavigateInput";
 import OpenModal from "./OpenModal";
 
-export default function Navbar(props){
-
+export default function Navbar({imgUsr, openDashboard}){
   return(
     <nav className="flex flex-row gap-3 items-center justify-between dark:bg-stone-500">
       <NavigateInput />
@@ -13,9 +12,9 @@ export default function Navbar(props){
       >
         <SubmitForm />
       </OpenModal>
-      <button>
+      <button onClick={openDashboard}>
         <img
-          src={props.imgUsr}
+          src={imgUsr}
           className="w-16 py-2 rounded-full"
         />
       </button>

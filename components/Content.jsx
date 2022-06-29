@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import apiClient from '../apiClient/apiClient'
 import File from './File'
 
-export default function Content({data}){
+export default function Content({child}){
   const [directories, setDirectories] = useState([])
   const [files, setFiles] = useState([])
 
@@ -45,6 +45,7 @@ export default function Content({data}){
         }
         </article>
       </section>
+      {child}
     </main>
   )
 }

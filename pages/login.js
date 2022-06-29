@@ -14,9 +14,9 @@ export default function LoginPage(){
 
   return (
     <main 
-      className="py-4 flex flex-col gap-4 items-center"
+      className="absolute inset-0 px-8 py-4 gap-7 flex flex-col justify-center items-center bg-gray-500"
     >
-      <h1 className="text-3xl">
+      <h1 className="text-4xl">
         Login
       </h1>
       <button 
@@ -31,6 +31,7 @@ export default function LoginPage(){
       <button className={style + " bg-blue-800"}>
         Facebook Account
       </button>
+
     </main>
   )
 }

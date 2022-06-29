@@ -1,16 +1,10 @@
 import {getSession} from "next-auth/react"
+
 import apiClient from "../apiClient/apiClient"
-import Content from "../components/Content"
-import Navbar from "../components/Navbar"
+import Home from '../components/Home'
 
 export default function ContentPage({session,data}){
-
-  return (
-    <div>
-      <Navbar imgUsr={session.user.image} />
-      <Content data={data} />
-    </div>
-  )
+  return <Home session={session} data={data} /> 
 }
 
 export const getServerSideProps = async(context)=>{

@@ -1,22 +1,11 @@
 import { getSession } from 'next-auth/react'
-import Head from 'next/head'
-import Content from '../components/Content'
-import Dashboard from '../components/Dashboard'
-import Navbar from '../components/Navbar'
+
 import apiClient from '../apiClient/apiClient'
 
+import Home from '../components/Home'
+
 export default function HomePage({session,data}){
-  return (
-    <div>
-      <Head>
-        <title>Content</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
-      <Navbar imgUsr={session.user.image} />
-      <Content data={data} />
-      {/*<Dashboard userName={session.user.name} />*/}
-    </div>
-  )
+  return <Home session={session} data={data} />
 }
 
 export const getServerSideProps = async(context)=>{
