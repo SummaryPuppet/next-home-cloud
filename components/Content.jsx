@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import apiClient from '../apiClient/apiClient'
 import File from './File'
 
-export default function Content(props){
+export default function Content({data}){
   const [directories, setDirectories] = useState([])
   const [files, setFiles] = useState([])
 
@@ -19,9 +19,9 @@ export default function Content(props){
     setDirectories(get.content.content.directories)
     setFiles(get.content.content.files)
   } 
+
   useEffect(()=>{
     getContent()
-    console.log(props.data)
   },[])
 
   const styleArticle = "flex sm:flex-col xl:flex-row justify-center"
