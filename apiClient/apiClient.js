@@ -2,9 +2,7 @@ class ApiClient{
 
   async getApi(path){
     const data = await fetch(`http://localhost:3000/api/content/${path}`)
-    const content = await data.json()
-
-    return content
+    return await data.json()
   }
 
   async submitApi(formData){

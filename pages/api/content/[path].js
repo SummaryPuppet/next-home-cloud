@@ -6,10 +6,6 @@ export default async function contentPath (req, res){
 
   const content = await readDirectories(dirPath.absolutePath)
   
-  console.log(path)
-  console.log(dirPath)
-  console.log(content)
-
   return res.status(200).json({ 
     content, 
     sucess: true,

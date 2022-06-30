@@ -10,7 +10,6 @@ export default function ContentPage({session,data}){
 export const getServerSideProps = async(context)=>{
   const session = await getSession(context)
   const data = await apiClient.getApi(context.params)
-  console.log(context.params)
 
   if (!session){
     return {
