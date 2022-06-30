@@ -1,7 +1,9 @@
 import { useRef, useState, useEffect } from "react"
 import apiClient from "../../apiClient/apiClient"
+import Warning from "../Warning"
 
 export default function SubmitForm(){
+  const [warning, setWarnig] = useState()
   const fileInput = useRef()
 
   const submitBackend = async()=>{
@@ -22,10 +24,10 @@ export default function SubmitForm(){
   
   const haveFiles = ()=>{
     if (fileInput.current.value == ""){
-      console.error("not files")
+      setWarnig(<Warning warningText="not files" />)
     } else {
       if (fileInput.current.value == isExist(false, fileInput.current.files[0].name)){
-        console.error("file is exist")
+        setWarnig(<Warning warningText="file is exist" />)
       } else {
         submitBackend()
       }
@@ -36,6 +38,10 @@ export default function SubmitForm(){
     e.preventDefault()
     haveFiles()
   }
+
+  useEffect(()=>{
+    setWarnig(undefined)
+  },[])
 
   return (
     <form 
@@ -53,6 +59,7 @@ export default function SubmitForm(){
       <button className="py-2 text-white bg-violet-800 rounded-lg">
         Submit
       </button>
+      {warning}
     </form>
   )
 }
