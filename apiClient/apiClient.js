@@ -7,7 +7,7 @@ class ApiClient{
     return content
   }
 
-  async sendFiles(formData){
+  async submitApi(formData){
     await fetch(`http://localhost:3000/api/upload`, {
       method: 'POST',
       headers: {

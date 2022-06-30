@@ -19,12 +19,13 @@ export default function NavigateInput (){
   },[])
 
   return (
-    <ul className="flex gap-3">
+    <ul className="flex sm:flex-col md:flex-row xl:flex-row gap-3">
       <Link href="/">
         <a>home</a>
       </Link>
       <input 
-        className="bg-transparent rounded-lg"
+        className="text-white bg-transparent border-2 border-stone-700 rounded-lg"
+        placeholder="route..."
         value={inputRoute}
         onChange={handleInput}
       />

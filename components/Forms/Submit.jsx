@@ -1,16 +1,33 @@
 import { useRef, useState, useEffect } from "react"
+import apiClient from "../../apiClient/apiClient"
 
 export default function SubmitForm(){
-  const [files, setFiles] = useState()
   const fileInput = useRef()
-  
 
+  const submitBackend = async()=>{
+    let formData = new FormData()
+    formData.append("file", fileInput.current.files[0])
+    await apiClient.submitApi(formData)
+  }
+
+  const isExist = async(directory, name)=>{
+    const res = await apiClient.getApi("")
+
+    if (directory){
+      return res.content.content.directories.includes(name)
+    } else {
+      return res.content.content.files.includes(name)
+    }
+  }
+  
   const haveFiles = ()=>{
     if (fileInput.current.value == ""){
       console.error("not files")
     } else {
-      if (fileInput.current.value){
-
+      if (fileInput.current.value == isExist(false, fileInput.current.files[0].name)){
+        console.error("file is exist")
+      } else {
+        submitBackend()
       }
     }
   }
@@ -19,10 +36,6 @@ export default function SubmitForm(){
     e.preventDefault()
     haveFiles()
   }
-
-  useEffect(()=>{
-
-  },[])
 
   return (
     <form 

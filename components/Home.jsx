@@ -27,7 +27,7 @@ export default function Home({session, data}){
         {
           openDashboard
             ? <Dashboard userName={session.user.name} />
-            : <div></div>
+            : <div>poto</div>
         }
       </Content>
     </>

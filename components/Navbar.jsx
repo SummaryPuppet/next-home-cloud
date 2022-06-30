@@ -4,7 +4,7 @@ import OpenModal from "./OpenModal";
 
 export default function Navbar({imgUsr, openDashboard}){
   return(
-    <nav className="flex flex-row gap-3 items-center justify-between dark:bg-stone-500">
+    <nav className="flex sm:flex-col xl:flex-row gap-3 items-center justify-between dark:bg-stone-500">
       <NavigateInput />
       <OpenModal 
         buttonStyle="" 
