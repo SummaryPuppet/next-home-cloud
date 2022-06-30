@@ -11,22 +11,12 @@ export default function SubmitForm(){
     formData.append("file", fileInput.current.files[0])
     await apiClient.submitApi(formData)
   }
-
-  const isExist = async(directory, name)=>{
-    const res = await apiClient.getApi("")
-
-    if (directory){
-      return res.content.content.directories.includes(name)
-    } else {
-      return res.content.content.files.includes(name)
-    }
-  }
   
   const haveFiles = ()=>{
     if (fileInput.current.value == ""){
       setWarnig(<Warning warningText="not files" />)
     } else {
-      if (fileInput.current.value == isExist(false, fileInput.current.files[0].name)){
+      if (fileInput.current.value == window.localStorage.getItem("files").includes(fileInput.current.files[0].name)){
         setWarnig(<Warning warningText="file is exist" />)
       } else {
         submitBackend()

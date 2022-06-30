@@ -18,6 +18,9 @@ export default function Content({child, data}){
 
     setDirectories(get.content.content.directories)
     setFiles(get.content.content.files)
+
+    window.localStorage.setItem("directories", get.content.content.directories)
+    window.localStorage.setItem("files", get.content.content.files)
   } 
 
   useEffect(()=>{
@@ -30,7 +33,6 @@ export default function Content({child, data}){
       <section 
         className="grid sm:grid-cols1 sm:place-content-center md:grid-cols-5 xl:grid-cols-5 grid-rows-3 gap-3 place-items-stretch"
       >
-
         {
           directories.map((directory, index)=>(
             <File name={directory} isDirectory={true} key={index} />
